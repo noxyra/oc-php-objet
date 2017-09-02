@@ -1,25 +1,23 @@
 <?php
-    abstract class Personnage{
-
-        // Methode standard
-        public function frapper(Personnage $personnage){
-            // ...
+    // Résolution statique à la volée
+    class Mere{
+        public static function lancerLeTest(){
+            self::quiEstCe();
         }
 
-        // Methode finale
-        final public function recevoirDegats(){
-            // ...
+        public static function quiEstCe()
+        {
+            echo "Je suis la classe mère";
+        }
+    }
+
+    class Enfant extends Mere{
+        public static function quiEstCe()
+        {
+            echo "Je suis la classe enfant";
         }
     }
 
-    class Guerrier extends Personnage{
-        // Ca va fonctionner
-        public function frapper(Personnage $personnage){
-            // ...
-        }
-
-        // Fatal error, on ne peut pas réecrire une classe finale.
-        public function recevoirDegats(){
-            // ...
-        }
-    }
+    // Va afficher : je suis la classe mère. car self:: fait appel à la methode statique de la classe ou elle est contenu. lancerLeTest est dans la classe mère, donc c'est le quiEstCe de la classe mère qui sera lancé.
+    // Pour afficher je suis la classe enfant, il faut remplacer self:: par static:: à la ligne 5
+    Enfant::lancerLeTest();
