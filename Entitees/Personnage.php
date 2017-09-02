@@ -4,6 +4,8 @@
         private $_id;
         private $_degats;
         private $_nom;
+        private $_experience;
+        private $_niveau;
 
         // Constantes
         const CEST_MOI = 1;
@@ -23,6 +25,14 @@
             return $this->_nom;
         }
 
+        public function getExperience(){
+            return $this->_experience;
+        }
+
+        public function getNiveau(){
+            return $this->_niveau;
+        }
+
         // Setters
         public function setId($id){
             $id = (int) $id;
@@ -40,6 +50,26 @@
             if(is_string($nom)){
                 $this->_nom = $nom;
             }
+        }
+
+        public function setExperience($exp){
+            $exp = (int) $exp;
+            $this->_experience = $exp;
+        }
+
+        public function setNiveau($lvl){
+            $lvl = (int) $lvl;
+            $this->_niveau = $lvl;
+        }
+
+        // Methodes spéciales.
+        public function gagnerExperience(){
+            $this->_experience += 10;
+        }
+
+        public function gagnerNiveau($lvl){
+            $lvl = (int) $lvl;
+            $this->_niveau += $lvl;
         }
 
         // Construction
@@ -68,8 +98,14 @@
             return $personnage->recevoirDegats();
         }
 
-        public function recevoirDegats(){
-            $this->_degats = $this->_degats + 5;
+        public function recevoirDegats($degats = null){
+
+            if($degats === null){
+                $this->_degats = $this->_degats + 5;
+            }
+            else{
+                $this->_degats = (int) $degats;
+            }
 
             if($this->_degats >= 100){
                 return self::PERSONNAGE_TUE;
