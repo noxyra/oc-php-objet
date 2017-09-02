@@ -19,4 +19,9 @@ Finalisation des classes :
     
 Finalisation des methodes :
 
-    git checkout ...
+    git checkout 427c243f5b3cdd6f8eb4430ca26281395f91710a
+    
+Resolution statique à la volée :
+
+    git checkout a3341034333fcad916243a67b0bcaa7c43026974
+

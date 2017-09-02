@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `personnages2` (
+CREATE TABLE IF NOT EXISTS `personnages_v2` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `degats` tinyint(3) unsigned NOT NULL DEFAULT '0',

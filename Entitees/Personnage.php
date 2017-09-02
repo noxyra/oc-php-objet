@@ -1,81 +1,68 @@
 <?php
-    class Personnage{
+    // Nous rendons la classe personnage impossible à instancier.
+    abstract class Personnage{
         // Variables
-        private $_id;
-        private $_degats;
-        private $_nom;
-        private $_experience;
-        private $_niveau;
+        protected   $atout,
+                    $degats,
+                    $id,
+                    $nom,
+                    $timeEndormi,
+                    $type;
 
         // Constantes
         const CEST_MOI = 1;
         const PERSONNAGE_TUE = 2;
         const PERSONNAGE_FRAPPE = 3;
+        const PERSONNAGE_ENSORCELE = 4;
+        const PAS_DE_MAGIE = 5;
+        const PERSO_ENDORMI = 6;
 
         // Getters
-        public function getId(){
-            return $this->_id;
-        }
-
-        public function getDegats(){
-            return $this->_degats;
-        }
-
-        public function getNom(){
-            return $this->_nom;
-        }
-
-        public function getExperience(){
-            return $this->_experience;
-        }
-
-        public function getNiveau(){
-            return $this->_niveau;
-        }
+        public function getId(){ return $this->id; }
+        public function getDegats(){ return $this->degats; }
+        public function getNom(){ return $this->nom; }
+        public function getAtout(){ return $this->atout; }
+        public function getTimeEndormi(){ return $this->timeEndormi; }
+        public function getType(){ return $this->type; }
 
         // Setters
         public function setId($id){
             $id = (int) $id;
-            $this->_id = $id;
+            $this->id = $id;
         }
 
         public function setDegats($degats){
             $degats = (int) $degats;
             if ($degats >= 0 && $degats <= 100){
-                $this->_degats = $degats;
+                $this->degats = $degats;
             }
         }
 
         public function setNom($nom){
             if(is_string($nom)){
-                $this->_nom = $nom;
+                $this->nom = $nom;
             }
         }
 
-        public function setExperience($exp){
-            $exp = (int) $exp;
-            $this->_experience = $exp;
+        public function setAtout($atout)
+        {
+            $atout = (int) $atout;
+
+            $this->atout = $atout;
         }
 
-        public function setNiveau($lvl){
-            $lvl = (int) $lvl;
-            $this->_niveau = $lvl;
-        }
+        public function setTimeEndormi($timeEndormi)
+        {
+            $timeEndormi = (int) $timeEndormi;
 
-        // Methodes spéciales.
-        public function gagnerExperience(){
-            $this->_experience += 10;
-        }
-
-        public function gagnerNiveau($lvl){
-            $lvl = (int) $lvl;
-            $this->_niveau += $lvl;
+            $this->timeEndormi = $timeEndormi;
         }
 
         // Construction
         public function __construct(array $donnees)
         {
             $this->hydrate($donnees);
+            $this->type = strtolower(static::class);
         }
 
         // Hydratation
@@ -101,13 +88,13 @@
         public function recevoirDegats($degats = null){
 
             if($degats === null){
-                $this->_degats = $this->_degats + 5;
+                $this->degats = $this->degats + 5;
             }
             else{
-                $this->_degats = (int) $degats;
+                $this->degats = (int) $degats;
             }
 
-            if($this->_degats >= 100){
+            if($this->degats >= 100){
                 return self::PERSONNAGE_TUE;
             }
 
@@ -116,6 +103,6 @@
 
         public function nomValide()
         {
-            return !empty($this->_nom);
+            return !empty($this->nom);
         }
     }
