@@ -7,4 +7,8 @@ Pour voir un héritage simple :
     
 Pour imposer des contraintes :
 
+    git checkout 103c0b9376462496e979bceade7e573320597087
+
+Exemples de methodes abstraites :
+
     git checkout ...
