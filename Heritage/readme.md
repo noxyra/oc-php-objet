@@ -11,4 +11,8 @@ Pour imposer des contraintes :
 
 Exemples de methodes abstraites :
 
+    git checkout 932799126604d150732b5a8d7ce97d1c120cc07e
+    
+Finalisation des classes :
+
     git checkout ...

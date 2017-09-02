@@ -1,19 +1,14 @@
 <?php
-    // Attention !! Il faut qu'une classe soit abstraite pour y insérer des méthodes abstraites.
+    abstract class Personnage{
 
-    abstract class Personnage{ // La classe Personnage est abstraite.
-        abstract public function frapper(Personnage $personnage);
-
-        public function recevoirDegats(){
-            // Instructions...
-        }
     }
 
-    class Magicien extends  Personnage{ // Magicien hérite de la classe abstraite Personnage.
-        // Nous sommes obligé d'écrire la fonction frapper pour le magicien.
-        public function frapper(Personnage $personnage){
-            // Instructions.
-        }
+    // Class finale.
+    final class Guerrier extends Personnage{
+
     }
 
-    $magicien = new Magicien; // Ok ça tourne.
+    // Fatal Error. Nous essayons d'étendre une classe finale.
+    class GentilGuerrier extends Guerrier{
+
+    }
