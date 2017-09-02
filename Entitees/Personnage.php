@@ -65,16 +65,21 @@
                 self::CEST_MOI;
             }
 
-            $personnage->recevoirDegats();
+            return $personnage->recevoirDegats();
         }
 
         public function recevoirDegats(){
-            $this->_degats += 5;
+            $this->_degats = $this->_degats + 5;
 
             if($this->_degats >= 100){
                 return self::PERSONNAGE_TUE;
             }
 
-            return self::PERSONNAGE_TUE;
+            return self::PERSONNAGE_FRAPPE;
+        }
+
+        public function nomValide()
+        {
+            return !empty($this->_nom);
         }
     }
