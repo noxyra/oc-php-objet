@@ -1,14 +1,25 @@
 <?php
     abstract class Personnage{
 
+        // Methode standard
+        public function frapper(Personnage $personnage){
+            // ...
+        }
+
+        // Methode finale
+        final public function recevoirDegats(){
+            // ...
+        }
     }
 
-    // Class finale.
-    final class Guerrier extends Personnage{
+    class Guerrier extends Personnage{
+        // Ca va fonctionner
+        public function frapper(Personnage $personnage){
+            // ...
+        }
 
-    }
-
-    // Fatal Error. Nous essayons d'étendre une classe finale.
-    class GentilGuerrier extends Guerrier{
-
+        // Fatal error, on ne peut pas réecrire une classe finale.
+        public function recevoirDegats(){
+            // ...
+        }
     }

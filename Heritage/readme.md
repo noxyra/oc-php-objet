@@ -15,4 +15,8 @@ Exemples de methodes abstraites :
     
 Finalisation des classes :
 
+    git checkout a4ce108286cd43b1d5e09c8a2824bfee086dc964
+    
+Finalisation des methodes :
+
     git checkout ...
