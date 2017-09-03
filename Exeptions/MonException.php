@@ -20,16 +20,25 @@
             throw new MonException('$a and $b must be numeric');
         }
 
+        if(func_num_args() > 2)
+        {
+            throw new Exception("Two args max must be give to this function.");
+        }
+
         return $a + $b;
     }
 
     try{
-        echo additionner(10, 3);
-        echo additionner("lol", 3);
-        echo additionner(3,4);
+        echo additionner(10, 3) . "<br />";
+        echo additionner(2, 3, 4) . "<br />";
     }
-    catch(MonException $e){
-        echo $e;
+    catch(MonException $e)
+    {
+        echo "[MonException] : " . $e;
+    }
+    catch(Exception $e)
+    {
+        echo "[Exception] : " . $e;
     }
 
     echo "<br />End.";
