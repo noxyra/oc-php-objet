@@ -9,3 +9,4 @@
     // C'est presque trop facile, j'ai hate de voir l'arnaque ! :p
     $monObjet->sayHello();
 
+    // ... To be continue.
